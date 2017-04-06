@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">Hopara</string>
+
+    <!-- descriptive text strings -->
     <string name="main_story">
         Within the boundaries of Hamilton lie several significant historic Maori sites.
         These sites range in type from Pa, Urupa, and Papakainga.  The majority of these sites
@@ -47,11 +49,18 @@
         Hamilton City before they were accurately recorded or mapped.
     </string>
 
+
+    <!-- button titles -->
     <string name="TerminologyTitle">Terminology</string>
     <string name="PuketeTitle">Pukete Pa</string>
     <string name="KirikiriroaTitle">Kirikiriroa Pa</string>
 
+    <!-- image descriptions -->
+    <string name="imageTr">Te Roore Tatangi</string>
+    <string name="imageKp">Kirikiriroa Pa Site Today</string>
 
+
+    <!-- activity titles -->
     <string name="title_activity_definition">Terminology</string>
     <string name="title_activity_pukete">Pukete Pa</string>
     <string name="title_activity_kirikiriroa">Kirikiriroa Pa</string>
