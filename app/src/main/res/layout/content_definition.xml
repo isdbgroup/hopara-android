@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="waikato.ac.nz.hopara_android.DefinitionActivity"
+    tools:showIn="@layout/activity_definition">
+
+    <TextView
+        android:id="@+id/txtPa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pa"
+        android:textAppearance="@android:style/TextAppearance.Material.Title"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="parent" />
+
+
+    <TextView
+        android:id="@+id/textViewPa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Pa"
+        android:textAlignment="gravity"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtPa"
+        android:padding="6dp" />
+
+    <TextView
+        android:id="@+id/txtPapakainga"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Papakainga"
+        android:textAppearance="@android:style/TextAppearance.Material.Title"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textViewPa" />
+
+    <TextView
+        android:id="@+id/textViewPapakainga"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="6dp"
+        android:text="@string/Papakainga"
+        android:textAlignment="gravity"
+        app:layout_constraintLeft_toLeftOf="@id/textViewPa"
+        app:layout_constraintTop_toBottomOf="@id/txtPapakainga" />
+
+    <TextView
+        android:id="@+id/txtUrupa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Urupa"
+        android:textAppearance="@android:style/TextAppearance.Material.Title"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textViewPapakainga" />
+
+
+    <TextView
+        android:id="@+id/textViewUrupa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="6dp"
+        android:text="@string/Urupa"
+        android:textAlignment="gravity"
+        app:layout_constraintLeft_toLeftOf="@id/textViewPapakainga"
+        app:layout_constraintTop_toBottomOf="@id/txtUrupa" />
+
+
+</android.support.constraint.ConstraintLayout>

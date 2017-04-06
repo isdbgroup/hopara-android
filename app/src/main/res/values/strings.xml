@@ -27,5 +27,29 @@
         ceremonies and rituals. Often the bodies were buried with items of personal adornment
         or greenstone artefacts.
     </string>
+
+    <string name="pukete">
+    Pukete was a fortified Pa, believed to have been constructed by Nga Iwi. Ngati Koura conquered
+        the Nga Iwi inhabitants and took over the pa and surrounding lands.
+
+    Pukete Pa was occupied by Ngati Koura under the leadership of Te Roore Tatangi when they
+    abandoned the Pa prior to the land wars of 1863. However, by this time the wooden palisade
+    fortifications of the Pa had disappeared only the ditch remained.
+    </string>
+
+    <string name="kirikiriroa">
+    Kirikiriroa Pa is the most significant Pa within the Hamilton City area. It was a fully
+        fortified Pa Whakairo (Pa with carved palisades). It was an half oval in shape with the
+        riverbank as the flat side and the curved front stretching from London Street to
+        Claudelands Road. The curved front was fortified by a ditch and mound structure
+        with an elaborate wooden palisade atop the mound. Unfortunately, most of the surface
+        features of the Kirikiriroa Pa site were destroyed during the early development of
+        Hamilton City before they were accurately recorded or mapped.
+    </string>
+
+
     <string name="title_activity_detail">DetailActivity</string>
+    <string name="title_activity_definition">DefinitionActivity</string>
+    <string name="title_activity_pukete">PuketeActivity</string>
+    <string name="title_activity_kirikiriroa">KirikiriroaActivity</string>
 </resources>

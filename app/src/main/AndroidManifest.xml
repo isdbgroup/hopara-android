@@ -16,6 +16,23 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".DefinitionActivity"
+            android:label="@string/title_activity_definition"
+            android:parentActivityName=".MainScreenActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="waikato.ac.nz.hopara_android.MainScreenActivity" />
+        </activity>
+        <activity
+            android:name=".PuketeActivity"
+            android:label="@string/title_activity_pukete"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".KirikiriroaActivity"
+            android:label="@string/title_activity_kirikiriroa"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
