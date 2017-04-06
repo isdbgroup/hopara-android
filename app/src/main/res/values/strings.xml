@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">hopara-android</string>
+    <string name="main_story">
+        Within the boundaries of Hamilton lie several significant historic Maori sites.
+        These sites range in type from Pa, Urupa, and Papakainga.  The majority of these sites
+        were constructed by the people of Ngati Wairere or its sub-tribes.  Many of the sites are
+        in close proximity to the Waikato river and Hamilton CBD, and are either designated as
+        parks or reserves.  Some sites are currently occupied by buildings.  Pukete Pa is one
+        example of a fortified Pa located at Braithwaite park, on the west bank of the waikato
+        river at Pukete Road.  Another Major Pa site located within the Hamilton CBD on London
+        street is Kirikiriroa Pa.
+    </string>
 </resources>
