@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">hopara-android</string>
+    <string name="app_name">Hopara</string>
     <string name="main_story">
         Within the boundaries of Hamilton lie several significant historic Maori sites.
         These sites range in type from Pa, Urupa, and Papakainga.  The majority of these sites
@@ -10,4 +10,22 @@
         river at Pukete Road.  Another Major Pa site located within the Hamilton CBD on London
         street is Kirikiriroa Pa.
     </string>
+    <string name="Pa">
+        A pa is a fortified village where Maori Chiefs and Warriors lived.  It was a place of
+        refuge when invading war parties came.  In general fortified Pa was constructed by
+        levelling an area of ground. Holes were dug around the perimeter of the site and large,
+        heavy, adzed wooden poles or split logs would be set close together with manuka stakes
+        leaving a sufficient gap to allow spears to be thrust between them.
+    </string>
+    <string name="Papakainga">
+        A Papakainga was an unfortified and undefended village or hamlet. In pre-European times
+        Papakainga were associated with food production and storage and inhabited by the people
+        involved in these processes.
+    </string>
+    <string name="Urupa">
+        Urupa are burial grounds where bodies of tribe members were buried with elaborate
+        ceremonies and rituals. Often the bodies were buried with items of personal adornment
+        or greenstone artefacts.
+    </string>
+    <string name="title_activity_detail">DetailActivity</string>
 </resources>
