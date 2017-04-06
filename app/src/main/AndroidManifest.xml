@@ -28,11 +28,19 @@
         <activity
             android:name=".PuketeActivity"
             android:label="@string/title_activity_pukete"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="waikato.ac.nz.hopara_android.MainScreenActivity" />
+        </activity>
         <activity
             android:name=".KirikiriroaActivity"
             android:label="@string/title_activity_kirikiriroa"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="waikato.ac.nz.hopara_android.MainScreenActivity" />
+        </activity>
     </application>
 
 </manifest>

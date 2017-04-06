@@ -24,6 +24,10 @@ public class PuketeActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
+
     }
 
 }

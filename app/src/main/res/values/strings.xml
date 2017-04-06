@@ -47,9 +47,12 @@
         Hamilton City before they were accurately recorded or mapped.
     </string>
 
+    <string name="TerminologyTitle">Terminology</string>
+    <string name="PuketeTitle">Pukete Pa</string>
+    <string name="KirikiriroaTitle">Kirikiriroa Pa</string>
 
-    <string name="title_activity_detail">DetailActivity</string>
-    <string name="title_activity_definition">DefinitionActivity</string>
-    <string name="title_activity_pukete">PuketeActivity</string>
-    <string name="title_activity_kirikiriroa">KirikiriroaActivity</string>
+
+    <string name="title_activity_definition">Terminology</string>
+    <string name="title_activity_pukete">Pukete Pa</string>
+    <string name="title_activity_kirikiriroa">Kirikiriroa Pa</string>
 </resources>
