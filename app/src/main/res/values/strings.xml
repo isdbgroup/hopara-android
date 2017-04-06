@@ -51,6 +51,7 @@
 
 
     <!-- button titles -->
+    <string name="mapTitle">Maori Pa Map</string>
     <string name="TerminologyTitle">Terminology</string>
     <string name="PuketeTitle">Pukete Pa</string>
     <string name="KirikiriroaTitle">Kirikiriroa Pa</string>
@@ -65,4 +66,5 @@
     <string name="title_activity_definition">Terminology</string>
     <string name="title_activity_pukete">Pukete Pa</string>
     <string name="title_activity_kirikiriroa">Kirikiriroa Pa</string>
+    <string name="title_activity_pa_maps">Map</string>
 </resources>

@@ -14,6 +14,11 @@ public class MainScreenActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main_screen);
     }
 
+    public void startMap(View view) {
+        Intent intent = new Intent(this, PaMapsActivity.class);
+        startActivity(intent);
+    }
+
     public void startDefinitions(View view) {
         Intent intent = new Intent(this, DefinitionActivity.class);
         startActivity(intent);
