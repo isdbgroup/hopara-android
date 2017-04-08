@@ -1,5 +1,6 @@
 package waikato.ac.nz.hopara_android;
 
+import android.content.Intent;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -20,7 +21,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class PaMapsActivity extends FragmentActivity implements OnMapReadyCallback {
+public class PaMapsActivity extends FragmentActivity implements OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
 
     private GoogleMap mMap;
     private Map<String, LatLng> coords;
@@ -38,30 +39,14 @@ public class PaMapsActivity extends FragmentActivity implements OnMapReadyCallba
     }
 
 
-    /**
-     * Manipulates the map once available.
-     * This callback is triggered when the map is ready to be used.
-     * This is where we can add markers or lines, add listeners or move the camera. In this case,
-     * we just add a marker near Sydney, Australia.
-     * If Google Play services is not installed on the device, the user will be prompted to install
-     * it inside the SupportMapFragment. This method will only be triggered once the user has
-     * installed Google Play services and returned to the app.
-     */
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-
-        // Add a marker in Sydney and move the camera
-        //        LatLng sydney = new LatLng(-34, 151);
-        //        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        //        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
-
-        //
-        setUpMap();
-
+        mMap.setOnMarkerClickListener(this);
+        setUpMarkers();
     }
 
-    private void setUpMap(){
+    private void setUpMarkers(){
 
         // add markers
         coords = new HashMap<String, LatLng>();
@@ -75,14 +60,31 @@ public class PaMapsActivity extends FragmentActivity implements OnMapReadyCallba
         for(String key : coords.keySet()) {
             LatLng lm = coords.get(key);
             Marker m = mMap.addMarker(new MarkerOptions().position(lm));
+            m.setTitle(key);
+            m.showInfoWindow();
             Assert.assertNotNull(m);
             markers.add(m);
             builder.include(m.getPosition());
         }
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(markers.get(0).getPosition()));
         // zoom in on marker group
-        //LatLngBounds bounds = builder.build();
-        //mMap.moveCamera(CameraUpdateFactory.newLatLngBounds(bounds, 20));
+        LatLngBounds bounds = builder.build();
+        mMap.moveCamera(CameraUpdateFactory.newLatLngBounds(bounds, 20));
 
     }
+
+    @Override
+    public boolean onMarkerClick(Marker marker) {
+        Intent intent = null;
+        switch(marker.getTitle()){
+            case "Pukete Pa":  intent = new Intent(this, PuketeActivity.class); break;
+            case "Kirikiriroa Pa":  intent = new Intent(this, KirikiriroaActivity.class); break;
+            case "Te Owhanga Pa": break;
+            case "Matakanoki Pa": break;
+        }
+        if (intent != null){
+            this.startActivity(intent);
+        }
+        return false;
+    }
+
 }
