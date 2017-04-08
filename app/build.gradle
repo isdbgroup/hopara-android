@@ -1,6 +1,5 @@
 apply plugin: 'com.android.application'
 
-def GOOGLE_API_KEY= '"' + googleApiKey + '"' ?: '"Add Your API key"'
 
 android {
     compileSdkVersion 25
@@ -12,9 +11,6 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-        manifestPlaceholders = [
-                GOGGLE_API_KEY : GOOGLE_API_KEY
-        ]
     }
     buildTypes {
         release {

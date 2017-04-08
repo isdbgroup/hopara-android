@@ -1,6 +1,6 @@
 *.iml
 .gradle
-AndroidManifest.xml
+google_maps_api.xml
 gradle.properties
 /local.properties
 /.idea/workspace.xml
