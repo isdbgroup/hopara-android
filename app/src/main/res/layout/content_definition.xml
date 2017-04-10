@@ -70,5 +70,20 @@
         app:layout_constraintLeft_toLeftOf="@id/textViewPapakainga"
         app:layout_constraintTop_toBottomOf="@id/txtUrupa" />
 
+    <Button
+        android:id="@+id/butHome"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="0dp"
+        android:background="@drawable/home"
+        android:onClick="goHome"
+        android:paddingLeft="0dp"
+        android:paddingRight="0dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textViewUrupa" />
+
+
 
 </android.support.constraint.ConstraintLayout>
