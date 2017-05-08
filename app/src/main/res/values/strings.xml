@@ -66,4 +66,6 @@
     <string name="title_activity_pukete">Pukete Pa</string>
     <string name="title_activity_kirikiriroa">Kirikiriroa Pa</string>
     <string name="title_activity_pa_maps">Map</string>
+
+    <string name="google_maps_key">AIzaSyD2leZPlLr5wwjZxGinlZS1-n3D4dKqVTE</string>
 </resources>
