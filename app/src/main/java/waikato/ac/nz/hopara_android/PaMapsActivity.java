@@ -98,7 +98,7 @@ public class PaMapsActivity extends FragmentActivity
 
 		// zoom in on marker group if no location was selected
 		if (position == null) {
-			builder.build().getCenter();
+			position = builder.build().getCenter();
 		}
 		CameraPosition cameraPosition = new CameraPosition.Builder()
 				.target(position)
