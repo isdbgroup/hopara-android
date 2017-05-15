@@ -1,9 +1,21 @@
 package waikato.ac.nz.hopara_android;
 
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
+import android.util.Log;
 
+import com.akexorcist.googledirection.DirectionCallback;
+import com.akexorcist.googledirection.GoogleDirection;
+import com.akexorcist.googledirection.constant.AvoidType;
+import com.akexorcist.googledirection.model.Direction;
+import com.akexorcist.googledirection.util.DirectionConverter;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -26,10 +38,16 @@ import waikato.ac.nz.hopara_android.map.MapTileDimension;
 import waikato.ac.nz.hopara_android.map.MapTileProvider;
 import waikato.ac.nz.hopara_android.util.ActivityUtils;
 
+import static android.Manifest.permission.ACCESS_COARSE_LOCATION;
+import static android.Manifest.permission.ACCESS_FINE_LOCATION;
+import static android.content.pm.PackageManager.PERMISSION_GRANTED;
+
 public class PaMapsActivity extends FragmentActivity
 		implements OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
 	public static int Z_INDEX_MAP_TILES = 1;
 	public static int Z_INDEX_MARKER = 2;
+
+	private boolean directionsRequested = false;
 
 	private GoogleMap mMap;
 	private Map<String, LatLng> coords;
@@ -60,7 +78,70 @@ public class PaMapsActivity extends FragmentActivity
 		Serializable serializable = data != null ? data.getSerializable(ActivityUtils.LOCATION_KEY) : null;
 		if (serializable != null && serializable instanceof String) {
 			selectedLocation = (String) serializable;
+			getDirections();
 		}
+	}
+
+	private void getDirections() {
+		if (ActivityCompat.checkSelfPermission(this, ACCESS_FINE_LOCATION) != PERMISSION_GRANTED &&
+				ActivityCompat.checkSelfPermission(this, ACCESS_COARSE_LOCATION) != PERMISSION_GRANTED) {
+			ActivityCompat.requestPermissions(
+					this, new String[]{ACCESS_FINE_LOCATION, ACCESS_COARSE_LOCATION}, 1);
+		}
+
+		LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+		// Define a listener that responds to location updates
+		LocationListener locationListener = new LocationListener() {
+			public void onLocationChanged(Location location) {
+				LatLng lastLocation = new LatLng(location.getLatitude(), location.getLongitude());
+				retrieveDirections(lastLocation, coords.get(selectedLocation));
+			}
+
+			public void onStatusChanged(String provider, int status, Bundle extras) {
+			}
+
+			public void onProviderEnabled(String provider) {
+			}
+
+			public void onProviderDisabled(String provider) {
+			}
+		};
+
+		locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, locationListener);
+	}
+
+	private void retrieveDirections(final LatLng from, final LatLng to) {
+		if (directionsRequested) {
+			return;
+		}
+
+		directionsRequested = true;
+		String string = getString(R.string.google_maps_key);
+		GoogleDirection.withServerKey(string)
+				.from(from)
+				.to(to)
+				.avoid(AvoidType.FERRIES)
+				.avoid(AvoidType.HIGHWAYS)
+				.execute(new DirectionCallback() {
+					@Override
+					public void onDirectionSuccess(Direction direction, String rawBody) {
+						if (!direction.isOK()) {
+							Log.e("Map", direction.getErrorMessage());
+							return;
+						}
+
+						mMap.addMarker(new MarkerOptions().position(from));
+						ArrayList<LatLng> directionPositionList =
+								direction.getRouteList().get(0).getLegList().get(0).getDirectionPoint();
+						mMap.addPolyline(DirectionConverter.createPolyline(
+								PaMapsActivity.this, directionPositionList, 5, Color.RED));
+					}
+
+					@Override
+					public void onDirectionFailure(Throwable t) {
+						// Do something
+					}
+				});
 	}
 
 
@@ -98,7 +179,7 @@ public class PaMapsActivity extends FragmentActivity
 
 		// zoom in on marker group if no location was selected
 		if (position == null) {
-			builder.build().getCenter();
+			position = builder.build().getCenter();
 		}
 		CameraPosition cameraPosition = new CameraPosition.Builder()
 				.target(position)

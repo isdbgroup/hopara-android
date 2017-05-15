@@ -10,9 +10,9 @@ public class MapTileDimension {
 	public MapTileDimension() {
 		dimension = new SparseArray<>();
 
-		addBoundingBox(14, 16170, 10051, 16171, 10052);
-		addBoundingBox(15, 32341, 20103, 32342, 20104);
-		addBoundingBox(16, 64682, 40206, 64684, 40208);
+		addBoundingBox(14, 16168, 10051, 16169, 10052);
+		addBoundingBox(15, 32337, 20103, 32339, 20105);
+		addBoundingBox(16, 64675, 40207, 64678, 40210);
 	}
 
 	public static MapTileDimension getInstance() {
