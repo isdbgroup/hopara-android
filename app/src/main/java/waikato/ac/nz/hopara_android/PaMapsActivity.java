@@ -7,6 +7,7 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
@@ -49,6 +50,8 @@ public class PaMapsActivity extends FragmentActivity
 
 	private boolean directionsRequested = false;
 
+	private static final int PERMISSION_REQUEST_CODE = 4711;
+
 	private GoogleMap mMap;
 	private Map<String, LatLng> coords;
 	private ArrayList<Marker> markers;
@@ -82,11 +85,24 @@ public class PaMapsActivity extends FragmentActivity
 		}
 	}
 
+	@Override
+	public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+		switch (requestCode) {
+			case PERMISSION_REQUEST_CODE:
+				if (grantResults.length > 0 && grantResults[0] == PERMISSION_GRANTED) {
+					getDirections();
+				}
+			default:
+				super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+		}
+	}
+
 	private void getDirections() {
 		if (ActivityCompat.checkSelfPermission(this, ACCESS_FINE_LOCATION) != PERMISSION_GRANTED &&
 				ActivityCompat.checkSelfPermission(this, ACCESS_COARSE_LOCATION) != PERMISSION_GRANTED) {
 			ActivityCompat.requestPermissions(
-					this, new String[]{ACCESS_FINE_LOCATION, ACCESS_COARSE_LOCATION}, 1);
+					this, new String[]{ACCESS_FINE_LOCATION, ACCESS_COARSE_LOCATION}, PERMISSION_REQUEST_CODE);
+			return;
 		}
 
 		LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
